@@ -1,55 +1,43 @@
+{{!-- Welcome --}}
+<div class="row">
+  <div class="col-auto">
+    <h2><span>~</span>Welcome, {{username}}!<span>~</span></h2>
+  </div>
+</div>
+
+{{!-- Create a Post --}}
 <main class="container">
   <div class="my-3 p-3 bg-body bg-light rounded shadow-sm">
-    <h6 class="purple-color border-bottom pb-2 mb-0">New Posts</h6>
-    <form id="post-form">
+    <h2 class="purple-color border-bottom pb-2 mb-0">Create a Post</h2>
+    {{!-- Form --}}
+    <form class="form-new-blog-form">
       <div class="form-group">
-        <textarea
-          name="content"
-          id="post-content"
-          class="post-content mytextarea"
-        ></textarea>
+        <textarea name="content" id="post-content" class="post-content mytextarea"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    {{#each posts as |post|}}
-      <div class="d-flex text-muted pt-3">
-        <!-- Profile pic? -->
-        <img class="postimg" src="{{post.User.image}}" width="32" height="32" />
-        <p class="pb-3 mb-0 small lh-sm border-bottom">
-          <strong class="d-block text-gray-dark">Did you hear that
-            <a
-              class="purple-color"
-              href="/users/{{post.User.id}}"
-            >{{post.User.first_name}}
-              {{post.User.last_name}}</a>
-            said...</strong>
-          {{post.content}}
-        </p>
+
+{{!-- Current Posts --}}
+ {{#if blogs.length}}
+  <div class="col-md-6 blog-list">
+    <h3>Current Blogs:</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
       </div>
-      {{#if post.Comments}}
-        {{#each post.Comments as |comment|}}
-          <div class="d-flex text-muted pt-3">
-            <p
-              class="pb-3 mb-0 small lh-sm border-bottom"
-              style="margin-left: 75px"
-            >
-              <strong class="d-block text-gray-dark">And then
-                <a
-                  class="purple-color"
-                  href="/users/{{comment.User.id}}"
-                >{{comment.User.first_name}}</a>
-                {{!-- {{comment.User.last_name}} --}}
-                said...</strong>
-              {{comment.content}}</p>
-          </div>
-        {{/each}}
-      {{/if}}
-      <button
-        data-postid={{post.id}}
-        class="btn-comment btn-secondary"
-      >comment</button>
-      <div id="commentArea-{{@index}}"></div>
+      <div class="col-md-4">
+        <button class="btn btn-danger" data-id="{{blog.id}}">DELETE</button>
+      </div>
+    </div>
     {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="/homework/14challenge-assignment/public/js/dashboard.js"></script>"></script>
+
   </div>
 
 </main>
