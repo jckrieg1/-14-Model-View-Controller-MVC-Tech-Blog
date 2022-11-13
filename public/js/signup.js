@@ -1,10 +1,11 @@
 // Form submission handled here:
-async function newFormHandler(event) {
+const signupFormHandler = async (event) => {
     event.preventDefault();
     const fist_name = document.querySelectorAll('#first_name').value;
     const last_name = document.querySelectorAll('#last_name').value;
     const email = document.querySelectorAll('#email').value;
     const password = document.querySelectorAll('#password').value;
+
 
     if (fist_name && last_name && email && password) {
         const response = await fetch('/api/users', {
@@ -18,13 +19,14 @@ async function newFormHandler(event) {
             headers: {'Content-Type': 'application/json'}
         });
         if (response.ok) {
-            alert('Account created!');
             document.location.replace('/dashboard');
-        } else {
+            alert('Account created!');
+        } 
+        else {
             alert(response.statusText)
         }
     }
   }
 
 
-document.querySelectorAll('.login-form').addEventListener('submit', newFormHandler); 
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler); 

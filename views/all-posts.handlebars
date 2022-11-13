@@ -24,10 +24,10 @@
                     </form>
     {{/if}}
                 <!-- Posted comments-->
-                {{#each comments as |comments}}
+                {{#each comments as |comments|}}
                     <div class="ms-3">
                        <p class="text-center commentText">{{comment.comment_description}}</p>
-			           <p class="text-center commentOwner"><span>~</span>Created by {{comment.user.username}} on {{format_date date_created}}<span>~</span></p>
+			           <p class="text-center commentOwner"><span>~</span>Created by {{comment.user.name}} on {{format_date date_created}}<span>~</span></p>
 		            </div>
 		        {{/each}}
             </div>

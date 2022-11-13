@@ -1,4 +1,4 @@
-{{#each post as |post|}}
+{{#each posts as |post|}}
 
  <!-- Page content-->
     <div class="container mt-5">
@@ -11,7 +11,7 @@
                 </header>
                 <!-- Post content; User-->
                 <div class="col-4">
-                    <p class="blogCreate text-right">Created by {{blog.user.username}} on {{format_date blog.date_created}}</p>
+                    <p class="blogCreate text-right">Created by {{blog.user.first_name}} on {{format_date blog.date_created}}</p>
                 </div>
 			</div>
                 {{!-- Body --}}
