@@ -15,6 +15,10 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -27,7 +31,10 @@ Post.init(
 
   {
     sequelize,
-    modelName: 'Post',
+    modelName: 'post',
+    timestamps: false,
+    underscored: true,
+    freezeTableName: true,
   }
 );
 

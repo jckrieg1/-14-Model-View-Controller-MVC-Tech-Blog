@@ -17,12 +17,19 @@
           <div class="container">
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="/homepage">Home</a></li>
-                {{#if logged_in }}
-                <li class="nav-item"><a class="nav-link" href="/signup">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+
+                <li class="nav-item">
+                  <a class="nav-link auth" id="logout" href="#">
+                    {{#if loggedIn}}Logout{{else}}Login{{/if}}
+                  </a>
+                </li>
+
+                 {{!-- {{#if logged_in }}
+                <li class="nav-item"><a class="nav-link" id="logout" href="/homepage">Logout</a></li>
                 {{else}}
                  <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-                 {{/if}}
+                 {{/if}} --}}
               </ul>
           </div>
         </nav>
@@ -32,9 +39,11 @@
         {{{body}}}
       </main>
     </div>
-    {{#if logged_in}}
-      <script src="/homework/14challenge-assignment/public/js/logout.js"</script>
-    {{/if}}
+   
+      <script src="/homework/14challenge-assignment/public/js/logout.js"></script>
+
+    {{!-- <script src="/homework/14challenge-assignment/public/js/login.js"></script>
+     <script src="/homework/14challenge-assignment/public/js/signup.js"></script> --}}
 
 
   </body>

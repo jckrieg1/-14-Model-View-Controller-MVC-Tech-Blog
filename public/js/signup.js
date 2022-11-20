@@ -1,18 +1,16 @@
 // Form submission handled here:
 const signupFormHandler = async (event) => {
     event.preventDefault();
-    const fist_name = document.querySelectorAll('#first_name').value;
-    const last_name = document.querySelectorAll('#last_name').value;
-    const email = document.querySelectorAll('#email').value;
-    const password = document.querySelectorAll('#password').value;
+    const name = document.querySelectorAll('form-input').value;
+    const email = document.querySelectorAll('form-input').value;
+    const password = document.querySelectorAll('form-input').value;
 
 
-    if (fist_name && last_name && email && password) {
+    if (name && email && password) {
         const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({
-                fist_name,
-                last_name,
+                name,
                 email,
                 password,
             }),

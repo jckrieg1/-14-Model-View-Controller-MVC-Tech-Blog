@@ -1,7 +1,7 @@
 {{!-- Welcome --}}
 <div class="row">
   <div class="col-auto">
-    <h2><span>~</span>Welcome, {{first_name}}!<span>~</span></h2>
+    <h2><span>~</span>Welcome, {{user.name}} !<span>~</span></h2>
   </div>
 </div>
 
@@ -9,6 +9,8 @@
 <main class="container">
   <div class="my-3 p-3 bg-body bg-light rounded shadow-sm">
     <h2 class="purple-color border-bottom pb-2 mb-0">Create a Post</h2>
+
+
     {{!-- Form --}}
     <form class="form-new-blog-form">
       <div class="form-group">
@@ -18,17 +20,17 @@
     </form>
 
 {{!-- Current Posts --}}
- {{#if blogs.length}}
+ {{#if posts.length}}
   <div class="col-md-6 blog-list">
-    <h3>Current Blogs:</h3>
+    <h3>Current Posts:</h3>
 
-    {{#each blogs as |blog|}}
+    {{#each post as |posts|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
+        <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-danger" data-id="{{blog.id}}">DELETE</button>
+        <button class="btn btn-danger" data-id="{{post.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
@@ -36,8 +38,28 @@
   {{/if}}
 </div>
 
-<script src="/homework/14challenge-assignment/public/js/dashboard.js"></script>"></script>
+{{!-- Comments --}}
+  <p>Comments:</p>
+      {{#if post.comments}}
+        {{#each post.comments as |comment|}}
+          <div class="d-flex text-muted pt-3">
+            <p class="pb-3 mb-0 small lh-sm border-bottom" style="margin-left: 75px">
+              {{comment.user.name}}:
+              {{comment.content}}
+            </p>
+          </div>
+        {{/each}}
+      {{/if}}
+
+      <a href="#" id="btn-comment" class="btn btn-comment" id={{post.id}}>Comment</a>
+
+
 
   </div>
 
+  <script src="/homework/14challenge-assignment/public/js/dashboard.js"></script>
+  <script src="/homework/14challenge-assignment/public/js/comment.js"></script>
+  <script src="/homework/14challenge-assignment/public/js/post.js"></script>
+
 </main>
+

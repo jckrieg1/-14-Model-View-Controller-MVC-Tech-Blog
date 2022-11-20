@@ -11,12 +11,12 @@
                 </header>
                 <!-- Post content; User-->
                 <div class="col-4">
-                    <p class="blogCreate text-right">Created by {{blog.user.first_name}} on {{format_date blog.date_created}}</p>
+                    <p class="blogCreate text-right">Created by {{post.user.username}} on {{format_date post.date_created}}</p>
                 </div>
 			</div>
                 {{!-- Body --}}
                 <div class="blogDesc">
-                    <p class="text-center blogDescMain">{{blog.description}}</p>
+                    <p class="text-center blogDescMain">{{post.description}}</p>
                 </div>
         </div>
   </div>
