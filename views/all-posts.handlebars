@@ -13,7 +13,7 @@
 
     
 <!-- Comments section-->
-    {{#if logged_in}}
+    {{!-- {{#if logged_in}} --}}
     <section class="mb-5">
         <div class="card bg-light">
             <div class="card-body">
@@ -22,7 +22,7 @@
                         <textarea class="comment-description form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
                     <button class="comment-btn">Comment</button>
                     </form>
-    {{/if}}
+    {{!-- {{/if}} --}}
                 <!-- Posted comments-->
                 {{#each comments as |comments|}}
                     <div class="ms-3">
@@ -34,4 +34,3 @@
         </div>
     </section>
 
-<script src="/homework/14challenge-assignment/public/js/comment.js"></script>

@@ -51,15 +51,37 @@
         {{/each}}
       {{/if}}
 
+
+<!-- Comments section-->
+    {{!-- {{#if logged_in}} --}}
+    <section class="mb-5">
+        <div class="card bg-light">
+            <div class="card-body">
+                <!-- Comment form-->
+                    <form class="new-comment-form mb-4" data-blogid={{id}}>
+                        <textarea class="comment-description form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                    <button class="comment-btn">Comment</button>
+                    </form>
+    {{!-- {{/if}} --}}
+                <!-- Posted comments-->
+                {{#each comments as |comments|}}
+                    <div class="ms-3">
+                       <p class="text-center commentText">{{comment.comment_description}}</p>
+			           <p class="text-center commentOwner"><span>~</span>Created by {{comment.user.name}} on {{format_date date_created}}<span>~</span></p>
+		            </div>
+		        {{/each}}
+            </div>
+        </div>
+    </section>
+
+
       <a href="#" id="btn-comment" class="btn btn-comment" id={{post.id}}>Comment</a>
-
-
 
   </div>
 
-  <script src="/homework/14challenge-assignment/public/js/dashboard.js"></script>
-  <script src="/homework/14challenge-assignment/public/js/comment.js"></script>
-  <script src="/homework/14challenge-assignment/public/js/post.js"></script>
+  <script src="./js/dashboard.js"></script>
+  <script src="./js/comment.js"></script>
+  {{!-- <script src="./js/post.js"></script> --}}
 
 </main>
 

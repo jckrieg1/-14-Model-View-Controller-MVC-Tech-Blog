@@ -1,4 +1,4 @@
-const { response } = require("express");
+
 
 const newFormHandler = async (event) => {
     event.preventDefault();
@@ -38,8 +38,8 @@ const newFormHandler = async (event) => {
     }
  };
 
- document.querySelector('.new-blog-form').addEventListener('submit', newFormHandler);
- document.querySelector('.post-list').addEventListener('click', delButtonHandler);
+ document.querySelector('.form-new-blog-form').addEventListener('submit', newFormHandler);
+//  document.querySelector('.post-list').addEventListener('click', delButtonHandler);
 
     
 
